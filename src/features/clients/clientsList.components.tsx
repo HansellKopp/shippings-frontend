@@ -5,7 +5,6 @@ import type { ColumnsType } from 'antd/es/table'
 import { Client, useGetClientsQuery } from './clientsApiSlice'
 import {
   PlusOutlined,
-  UpCircleOutlined,
   UploadOutlined
 } from '@ant-design/icons'
 import useTitle from 'hooks/useTitle'
