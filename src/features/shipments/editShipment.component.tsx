@@ -1,1 +1,1 @@
-export const EditClient = () => <div />
+export const EditShipment = () => <div />

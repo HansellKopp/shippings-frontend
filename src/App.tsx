@@ -10,6 +10,7 @@ import { AddUser } from "features/users/addUser.component";
 import { EditUser } from "features/users/editUser.component";
 import { DeleteUser } from 'features/users/deleteUser.component';
 import { Shipments } from "features/shipments/shipmentsList.components";
+import { AddShipment } from 'features/shipments/addShipment.component';
 import { AddService } from 'features/services/addService.component';
 import { DeleteService } from 'features/services/deleteService.component';
 import { EditService } from 'features/services/editService.component';
@@ -23,6 +24,7 @@ import { Prefetch } from 'features/auth/prefetch.component';
 import { ROLES } from './config/roles'
 import './app.css'
 import useTitle from 'hooks/useTitle';
+import { EditShipment } from 'features/shipments/editShipment.component';
 
 function App() {
   useTitle('Shopper Seguro')
@@ -56,8 +58,8 @@ function App() {
 
             <Route path="shipments">
               <Route index element={<Shipments />} />
-              <Route path="add" element={<AddClient />} />
-              <Route path="edit/:id" element={<EditClient />} />
+              <Route path="add" element={<AddShipment/>} />
+              <Route path="edit/:id" element={<EditShipment />} />
             </Route>
 
             <Route path="users">

@@ -33,7 +33,7 @@ type RefreshResponse = {
     error: Error;
 }
 
-const baseQueryWithReauth = async (args, api, extraOptions) => {
+const baseQueryWithReauth = async (args: any, api: any, extraOptions: any) => {
     // console.log(args) // request url, method, body
     // console.log(api) // signal, dispatch, getState()
     // console.log(extraOptions) //custom like {shout: true}

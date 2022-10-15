@@ -18,7 +18,7 @@ export const AddClient = () => {
                     description: 'Client added successfully'
                 })
                 form.resetFields()
-                navigate("/dash/clients");
+                navigate(-1);
             })
             .catch(() => {})
     }

@@ -4,11 +4,15 @@ export type Shipment = {
   id: string
   _id: string
   user_id: string
-  shipment_id: string
+  shipment_id: string,
+  accountNumber: string,
+  shipmentNumber: string,
+  expedient: string,
   date: string
   dueDate: string
   referenc: string
   payMethod: string
+  orderNumber: string,
   master: string
   arrivingDate: string
   sender: string

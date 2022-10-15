@@ -1,9 +1,9 @@
-import { PlusOutlined } from '@ant-design/icons'
-import { Button, PageHeader, Skeleton, Space, Table } from 'antd'
 import { ColumnsType } from 'antd/lib/table'
+import { PlusOutlined } from '@ant-design/icons'
+import { Link, useNavigate } from 'react-router-dom'
+import { Button, PageHeader, Skeleton, Space, Table } from 'antd'
 import { Shipment, useGetShipmentsQuery } from 'features/shipments/shipmentsApiSlice'
 import useTitle from 'hooks/useTitle'
-import { Link, useNavigate } from 'react-router-dom'
 
 const columns: ColumnsType<Shipment> = [
   {
@@ -35,10 +35,10 @@ const columns: ColumnsType<Shipment> = [
     key: 'action',
     render: (_, record) => (
       <Space size="middle">
-        <Link to={`/dash/clients/edit/${record._id}`}>
+        <Link to={`/dash/shipments/edit/${record._id}`}>
           <i className="icofont-edit icofont"></i>
         </Link>
-        <Link to={`/dash/clients/delete/${record._id}`}>
+        <Link to={`/dash/shipments/delete/${record._id}`}>
           <i className="icofont-trash icofont"></i>
         </Link>
       </Space>
@@ -48,9 +48,9 @@ const columns: ColumnsType<Shipment> = [
 
 export const Shipments = () => {
   const navigate = useNavigate()
-  const { data: shipments, isFeching } = useGetShipmentsQuery({})
   useTitle('Shipments List | Shopper Seguro')
-  const handleAddShipment = () => {}
+  const { data: shipments, isFeching } = useGetShipmentsQuery({})
+  const handleAddShipment = () => navigate('/dash/shipments/add')
 
   const header = (
     <PageHeader
