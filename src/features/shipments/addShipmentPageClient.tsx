@@ -10,7 +10,7 @@ import Paragraph from 'antd/lib/typography/Paragraph';
 import { setCurrentPage, setShipment } from './shipmentSlice';
 import { useDispatch } from 'react-redux';
 
-export const AddShipmentPage1 = () => {
+export const AddShipmentClient = () => {
     useTitle('Add Shipment | Shopper Seguro')
     const [form] = Form.useForm()
     const navigate = useNavigate();

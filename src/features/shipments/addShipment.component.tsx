@@ -9,9 +9,9 @@ import useTitle from 'hooks/useTitle';
 import Paragraph from 'antd/lib/typography/Paragraph';
 import { selectCurrentPage, setCurrentPage, setShipment } from './shipmentSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { AddShipmentPage1 } from './addShipmentPage1';
+import { addShipmentPageClient } from './addShipmentPageClient';
 import { AddShipmentHeader } from './addShipmentHeader';
-import { AddShipmentDetails } from './AddShipmentDetails';
+import { AddShipmentDetails } from './addShipmentDetails';
 
 export const AddShipment = () => {
     useTitle('Add Shipment | Shopper Seguro')

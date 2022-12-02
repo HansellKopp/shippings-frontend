@@ -6,24 +6,38 @@ import useTitle from "hooks/useTitle"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { ruleRequired } from "utils"
-import { selectClient } from "./shipmentSlice"
+import { selectClient, selectShipment, setCurrentPage } from "./shipmentSlice"
 
 export const AddShipmentDetails = () => {
     const client = useSelector(selectClient)
+    const shipment = useSelector(selectShipment)
     const [form] = Form.useForm()
     const navigate = useNavigate();
     const dispatch = useDispatch()
     useTitle('Add Shipment details| Shopper Seguro')
-    const handleSubmit = () => {}
+
+    const handleSubmit = () => {
+        dispatch(setCurrentPage(3))
+    }
+    const handlePrevious = () => {
+        dispatch(setCurrentPage(1))
+    }
+
     const headerCard = 
-        <Card title={client.name}>
-            <Typography>
-                <Paragraph>{client.street}, {client.city}</Paragraph>
-                <Paragraph>{client.state}, {client.zipcode} - {client.country}</Paragraph>
-                <Paragraph>{client.email}</Paragraph>
-                <Paragraph>{client.phone}</Paragraph>
-            </Typography>
-        </Card>
+        <div className="flex">
+            <Card title={client.name}>
+                <Typography>
+                    <Paragraph>{client.street}, {client.city}</Paragraph>
+                    <Paragraph>{client.state}, {client.zipcode} - {client.country}</Paragraph>
+                    <Paragraph>{client.email}</Paragraph>
+                    <Paragraph>{client.phone}</Paragraph>
+                </Typography>
+            </Card>
+            <Card title={"Shipment Info"}>
+                <Paragraph><div className="flex justify-between"><div>Account #:</div>{shipment.orderNumber}<div>Shipment Number:</div>{shipment.shipmentNumber}</div></Paragraph>
+                <Paragraph><div className="flex justify-between"><div>Date #:</div>{shipment.date}<div>Expedient:</div>{shipment.expedient}</div></Paragraph>
+            </Card>
+        </div>
     let content = 
     <div className="max-w-screen-lg m-auto">
     <PageHeader title="Add Shipment" subTitle=""  onBack={() => window.history.back()} />
@@ -32,7 +46,7 @@ export const AddShipmentDetails = () => {
         form={form}
         onFinish={handleSubmit}
     >
-     <div className="grid grid-cols-4 gap-2">
+     <div className="flex flex-col gap-2">
         <div className="col-span-4 sm:col-span-2">
             {headerCard}
         </div>
@@ -81,7 +95,10 @@ export const AddShipmentDetails = () => {
             </div>
         </div>
     </div>
-    <div className='flex justify-end'>
+    <div className='flex justify-between'>
+        <Form.Item> 
+            <Button type="primary" onClick={handlePrevious}>Previous</Button>
+        </Form.Item>
         <Form.Item> 
             <Button type="primary" htmlType='submit'>Next</Button>
         </Form.Item>
